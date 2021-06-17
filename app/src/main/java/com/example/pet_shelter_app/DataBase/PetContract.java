@@ -30,14 +30,6 @@ public class PetContract {
             return false;
         }
 
-        public static final String CONTENT_LIST_TYPE =
-                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_PETS;
-
-        /**
-         * The MIME type of the {@link #CONTENT_URI} for a single pet.
-         */
-        public static final String CONTENT_ITEM_TYPE =
-                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_PETS;
     }
 
 }
