@@ -47,9 +47,6 @@ public class PetProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Cannot query unknown URI "+uri);
         }
-        // set notification uri on the cursor
-        // so we know what content uri the cursor was created for.
-        //if the data at this uri change then we know we need to update cursor
         cursor.setNotificationUri(getContext().getContentResolver(),uri);
         return cursor;
     }
@@ -107,7 +104,6 @@ public class PetProvider extends ContentProvider {
         if(new_row_id == -1){
             return null;
         }
-        // notify alll listeners that the data has changed for the pet content uri
 
         getContext().getContentResolver().notifyChange(uri,null);
         return ContentUris.withAppendedId(uri,new_row_id);
@@ -121,7 +117,6 @@ public class PetProvider extends ContentProvider {
         int DeletedRow ;
         switch (match) {
             case PETS:
-                // Delete all rows that match the selection and selection args
                 DeletedRow = database.delete(PetSchema.TABLE_NAME, selection, selectionArgs);
                 break;
             case PETS_ID:
@@ -166,18 +161,12 @@ public class PetProvider extends ContentProvider {
                 throw new IllegalArgumentException("Pet requires a name");
             }
         }
-
-        // If the {@link PetEntry#COLUMN_PET_GENDER} key is present,
-        // check that the gender value is valid.
         if (values.containsKey(PetSchema.COLUMN_PET_GENDER)) {
             Integer gender = values.getAsInteger(PetSchema.COLUMN_PET_GENDER);
             if (gender == null || !PetSchema.isValidGender(gender)) {
                 throw new IllegalArgumentException("Pet requires valid gender");
             }
         }
-
-        // If the {@link PetEntry#COLUMN_PET_WEIGHT} key is present,
-        // check that the weight value is valid.
         if (values.containsKey(PetSchema.COLUMN_PET_WEIGHT)) {
             // Check that the weight is greater than or equal to 0 kg
             Integer weight = values.getAsInteger(PetSchema.COLUMN_PET_WEIGHT);
@@ -189,8 +178,6 @@ public class PetProvider extends ContentProvider {
 
         int rowsUpdated = database.update(PetSchema.TABLE_NAME, values, selection, selectionArgs);
 
-        // If 1 or more rows were updated, then notify all listeners that the data at the
-        // given URI has changed
         if (rowsUpdated != 0) {
             getContext().getContentResolver().notifyChange(uri, null);
         }
