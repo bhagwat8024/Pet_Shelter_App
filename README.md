@@ -32,6 +32,6 @@ It also show's you that how to display alertdialog if the user have Click on the
 
 ## Screenshots:-
 
-<img src="Screenshot_2020-11-30-18-12-20-056_com.example.pet_shelter_app.png" width="250" height="450" /><img src="Screenshot_2020-11-30-18-12-26-933_com.example.pet_shelter_app.png" width="250" height="450" />
+<img src="Screenshot_2020-11-30-18-12-20-056_com.example.pet_shelter_app.png" width="250" height="450" />                 <img src="Screenshot_2020-11-30-18-12-26-933_com.example.pet_shelter_app.png" width="250" height="450" />
 
-<img src="Screenshot_2020-11-30-18-12-56-512_com.example.pet_shelter_app.png" height="450" width="250" /><img src="Screenshot_2020-11-30-18-13-09-013_com.example.pet_shelter_app.png" width="250" height="450" /> 
+<img src="Screenshot_2020-11-30-18-12-56-512_com.example.pet_shelter_app.png" height="450" width="250" />                 <img src="Screenshot_2020-11-30-18-13-09-013_com.example.pet_shelter_app.png" width="250" height="450" /> 
